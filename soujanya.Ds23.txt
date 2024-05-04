@@ -1,0 +1,827 @@
+ 1) Python Program to demonstrate working of LIST.
+
+# Creating a List
+List = []
+print("Blank List: ")
+print(List)
+# Creating a List of numbers
+List = [10,20,14]
+print("\nList of numbers: ")
+print(List)
+# Creating a List of string
+List = ["Mon", "Tue", "Wed"]
+print("\nList Items: ")
+print(List[0])
+print(List[2])
+# Creating a multi-Dimensional List
+List = [['jan', 'feb'], ['march']]
+print("\nMulti-Dimensional List: ")
+print(List)
+
+output:-
+
+>>> %Run 24.py
+Blank List: 
+[]
+
+List of numbers: 
+[10, 20, 14]
+
+List Items: 
+Mon
+Wed
+
+Multi-Dimensional List: 
+[['jan', 'feb'], ['march']]
+>>> 
+
+
+2) Python program to demonstrate working of DIC NARY.
+
+# Creating an empty Dictionary
+Dict = {}
+print("Empty Dictionary: ")
+print(Dict)
+# Creating a Dictionary with dict() method
+Dict = dict({1: 'Mon', 2: 'Tue', 3:'Wed'})
+print("Dictionary with the use of dict(): ")
+print(Dict)
+# Creating a Dictionary with each item as  a pair
+Dict = dict([(1, 'january'), (2, 'February')])
+print("Dictionary with each item as a pair: ")
+print(Dict)
+
+ouput:-
+
+>>> %Run '24 1.py'
+Empty Dictionary: 
+{}
+Dictionary with the use of dict(): 
+{1: 'Mon', 2: 'Tue', 3: 'Wed'}
+Dictionary with each item as a pair: 
+{1: 'january', 2: 'February'}
+>>> 
+
+
+3) Python program to demonstrate working of TUPLE.
+
+t1 = (0, ) #A one -item tuple(not an expression)
+t2 = (0, 1, 2, 3) #A four-item tuple
+t3 = 0, 1, 2, 3
+t3 = ('abc', ('def', 'ghi'))
+print(t1[0])
+print(t3[1:3])
+print(len(t3))
+tup = (1, "a", "string", 1+2)
+print (tup)
+
+output:-
+
+>>> %Run '24 2.py'
+0
+(('def', 'ghi'),)
+2
+(1, 'a', 'string', 3)
+>>> 
+
+4) Python program to demonstrate working of SET.
+
+# Creating two sets
+set1 = set()
+set2 = set()
+# Adding elements to set1
+for i in range(1, 6):
+    set1.add(i)
+# Adding elements to set2
+for i in range(3, 8):
+    set2.add(i)
+print("set1 = ", set1)
+print("set2 = ", set2)
+print("\n")
+
+output:-
+
+>>> %Run '24 3.py'
+set1 =  {1, 2, 3, 4, 5}
+set2 =  {3, 4, 5, 6, 7}
+
+>>> 
+
+
+5) Implement Employee ADT with all it's operation.
+class Employee:
+    count=0
+    def __init__(self, name, desig, salary):
+        self.name=name
+        self.desig=desig
+        self.salary=salary
+        Employee.count+=1
+    def displaycount(self):
+        print("There are %d employees" % Employee.count)
+    def displayDetails(self):
+        print("Name:", self.name, ", Designation:", self.desig, ", Salary:",self.salary)
+e1=Employee("John", "Manager", 80000)
+e2=Employee("Mike", "Team Leader", 50000)
+e3=Employee("Derek", "Programmer", 30000)
+e4=Employee("Raj", "Assistant", 25000)
+e4.displaycount()
+print("Details of all employee:")
+e1.displayDetails()
+e2.displayDetails()
+e3.displayDetails()
+e4.displayDetails()       
+
+output:-
+
+>>> %Run Employee.py
+There are 4 employees
+Details of all employee:
+Name: John , Designation: Manager , Salary: 80000
+Name: Mike , Designation: Team Leader , Salary: 50000
+Name: Derek , Designation: Programmer , Salary: 30000
+Name: Raj , Designation: Assistant , Salary: 25000
+>>> 
+
+6) Linearsearch simple program.
+
+import time
+def linearsearch(arr,x):
+    i=0
+    while i<len(arr):
+        if arr[i]==x:
+            return i
+        i=i+1
+    return-1
+arr=list()
+start=time.time()
+n=int(input("enter the no of element"))
+for i in range(n):
+    number=int(input("enter the element"))
+    arr.append(number)
+x=int(input("enter the element to be searched"))
+r=linearsearch(arr,x)
+if r>0:
+    print("element is found at",r)
+else:
+    print("element is not found")
+    end=time.time()
+    print("time for execution", end-start)
+
+output:-
+
+>>> %Run 'linear 1.py'
+enter the no of element2
+enter the element4
+enter the element3
+enter the element to be searched3
+element is found at 1
+>>> %Run 'linear 1.py'
+enter the no of element2
+enter the element43
+enter the element2
+enter the element to be searched5
+element is not found
+time for execution 16.312628746032715
+>>> 
+
+7) Implement Linearsearch complutr space and there complexites , plotgraph using asymptomatic notations.
+
+import time
+import numpy as np
+import matplotlib.pyplot as plt
+def linearsearch (arr,x):
+    i=0
+    while i<len (arr):
+        if arr[i]==x:
+            return i
+        i=i+1
+    return-1
+times=list()
+arr=list()
+numtimes=list()
+for x in range(1,8):
+    start=time.time()
+    n=int(input("enter the no of elements"))
+    numtimes.append(n)
+    for x in range(n):
+        number=np.random.randint(10,99)
+        arr.append(number)
+    print("list befor searching",x+1,"elements")
+    print(arr)
+    linearsearch(arr,x) 
+    end=time.time()
+    times.append(end-start)
+    print("list after linearsearch of",x+1,"elements")
+    print(arr)
+    print("time taken for linearsearch for",n,"elements is",end-start)
+print(numtimes)
+print(times)
+plt.plot(numtimes,times,label="linearsearch")
+plt.grid()
+plt.legend()
+plt.show()
+
+output:-
+
+>>> %Run Linearsearch.py
+enter the no of elements1
+list befor searching 1 elements
+[42]
+list after linearsearch of 1 elements
+[42]
+time taken for linearsearch for 1 elements is 10.734355211257935
+enter the no of elements2
+list befor searching 2 elements
+[42, 10, 34]
+list after linearsearch of 2 elements
+[42, 10, 34]
+time taken for linearsearch for 2 elements is 43.18764305114746
+enter the no of elements3
+list befor searching 3 elements
+[42, 10, 34, 30, 46, 93]
+list after linearsearch of 3 elements
+[42, 10, 34, 30, 46, 93]
+time taken for linearsearch for 3 elements is 1.906221628189087
+enter the no of elements4
+list befor searching 4 elements
+[42, 10, 34, 30, 46, 93, 63, 23, 29, 33]
+list after linearsearch of 4 elements
+[42, 10, 34, 30, 46, 93, 63, 23, 29, 33]
+time taken for linearsearch for 4 elements is 1.3750076293945312
+enter the no of elements5
+list befor searching 5 elements
+[42, 10, 34, 30, 46, 93, 63, 23, 29, 33, 85, 98, 84, 16, 21]
+list after linearsearch of 5 elements
+[42, 10, 34, 30, 46, 93, 63, 23, 29, 33, 85, 98, 84, 16, 21]
+time taken for linearsearch for 5 elements is 1.2968666553497314
+enter the no of elements6
+list befor searching 6 elements
+[42, 10, 34, 30, 46, 93, 63, 23, 29, 33, 85, 98, 84, 16, 21, 48, 15, 22, 98, 11, 63]
+list after linearsearch of 6 elements
+[42, 10, 34, 30, 46, 93, 63, 23, 29, 33, 85, 98, 84, 16, 21, 48, 15, 22, 98, 11, 63]
+time taken for linearsearch for 6 elements is 1.6719043254852295
+enter the no of elements7
+list befor searching 7 elements
+[42, 10, 34, 30, 46, 93, 63, 23, 29, 33, 85, 98, 84, 16, 21, 48, 15, 22, 98, 11, 63, 94, 64, 17, 47, 51, 78, 71]
+list after linearsearch of 7 elements
+[42, 10, 34, 30, 46, 93, 63, 23, 29, 33, 85, 98, 84, 16, 21, 48, 15, 22, 98, 11, 63, 94, 64, 17, 47, 51, 78, 71]
+time taken for linearsearch for 7 elements is Warning: QT_DEVICE_PIXEL_RATIO is deprecated. Instead use:
+   QT_AUTO_SCREEN_SCALE_FACTOR to enable platform plugin controlled per-screen factors.
+   QT_SCREEN_SCALE_FACTORS to set per-screen DPI.
+   QT_SCALE_FACTOR to set the application global scale factor.
+7.249979734420776
+[1, 2, 3, 4, 5, 6, 7]
+[10.734355211257935, 43.18764305114746, 1.906221628189087, 1.3750076293945312, 1.2968666553497314, 1.6719043254852295, 7.249979734420776]
+
+8) Implement Bubblesort compute space and time complexities,plot graph programming.
+
+import time
+import numpy as np
+import matplotlib.pyplot as plt
+def bubblesort(arr):
+    for i in range(len(arr)):
+        for j in range(0,len(arr)-i-1):
+            if arr[j] > arr[j+1]:
+                arr[j],arr[j+1]=arr[j+1],arr[j]
+# main code
+times=list()
+arr=list()
+numtimes=list()
+for i in range(1,8):
+    start=time.time()
+    n=int(input("Enter the no of elements"))
+    numtimes.append(n)
+    arr.clear()
+    for x in range(n):
+        number=np.random.randint(10,99)
+        arr.append(number)
+    print("list before sorting elements")
+    print(arr)
+    bubblesort(arr)
+    end=time.time()
+    times.append(end-start)
+    print("list after bubblesort of element")
+    print(arr)
+print(numtimes)
+print(times)
+plt.xlabel('list length')
+plt.ylabel('time complexity')
+plt.plot(numtimes,times,label="Bubblesort")
+plt.grid()
+plt.legend()
+plt.show()
+
+
+output:-
+
+>>> %Run bubble2.py
+Enter the no of elements1
+list before sorting elements
+[50]
+list after bubblesort of element
+[50]
+Enter the no of elements2
+list before sorting elements
+[75, 13]
+list after bubblesort of element
+[13, 75]
+Enter the no of elements3
+list before sorting elements
+[26, 48, 91]
+list after bubblesort of element
+[26, 48, 91]
+Enter the no of elements4
+list before sorting elements
+[82, 93, 76, 22]
+list after bubblesort of element
+[22, 76, 82, 93]
+Enter the no of elements5
+list before sorting elements
+[62, 90, 85, 59, 53]
+list after bubblesort of element
+[53, 59, 62, 85, 90]
+Enter the no of elements6
+list before sorting elements
+[76, 30, 57, 16, 73, 34]
+list after bubblesort of element
+[16, 30, 34, 57, 73, 76]
+Enter the no of elements7
+list before sorting elements
+[28, 18, 79, 76, 88, 71, 60]
+list after bubblesort of element
+[18, 28, 60, 71, 76, 79, 88]
+[1, 2, 3, 4, 5, 6, 7]
+[4.23448634147644, 3.031148910522461, 2.0157060623168945, 1.5936436653137207, 1.2188236713409424, 1.4687905311584473, 3.093735933303833]Warning: QT_DEVICE_PIXEL_RATIO is deprecated. Instead use:
+   QT_AUTO_SCREEN_SCALE_FACTOR to enable platform plugin controlled per-screen factors.
+   QT_SCREEN_SCALE_FACTORS to set per-screen DPI.
+   QT_SCALE_FACTOR to set the application global scale factor.
+
+
+9) Implement Selectionsort, compute space and time complexities,plot graph programming.
+
+import time
+import numpy as np
+import matplotlib.pyplot as plt
+def selectionsort(arr):
+    m=len(arr)
+    i=0
+    while i < m:
+        j=i
+        k=i+1
+        while k < m:
+            if arr[k] < arr[j]:
+                j=k
+            k=k+1
+        arr[i],arr[j]=arr[j],arr[i]
+        i=i+1
+# main code
+times=list()
+arr=list()
+numtimes=list()
+for i in range(1,8):
+    start=time.time()
+    n=int(input("Enter the no of elements"))
+    numtimes.append(n)
+    arr.clear()
+    for x in range(n):
+        number=np.random.randint(10,99)
+        arr.append(number)
+    print("list before sorting elements")
+    print(arr)
+    selectionsort(arr)
+    end=time.time()
+    times.append(end-start)
+    print("list after selectionsort of element")
+    print(arr)
+    print("time taken for selectionsort for",n,"elements is",end-start)
+print(numtimes)
+print(times)
+plt.xlabel('list length')
+plt.ylabel('time complexity')
+plt.plot(numtimes,times,label="selectionsort")
+plt.grid()
+plt.legend()
+plt.show() 
+
+
+output:-
+
+>>> %Run selection.py
+Enter the no of elements4
+list before sorting elements
+[69, 43, 50, 22]
+list after selectionsort of element
+[22, 43, 50, 69]
+time taken for selectionsort for 4 elements is 2.375081777572632
+Enter the no of elements5
+list before sorting elements
+[23, 62, 34, 51, 95]
+list after selectionsort of element
+[23, 34, 51, 62, 95]
+time taken for selectionsort for 5 elements is 8.781176805496216
+Enter the no of elements6
+list before sorting elements
+[27, 57, 91, 75, 56, 50]
+list after selectionsort of element
+[27, 50, 56, 57, 75, 91]
+time taken for selectionsort for 6 elements is 1.3750858306884766
+Enter the no of elements7
+list before sorting elements
+[34, 95, 41, 63, 93, 59, 82]
+list after selectionsort of element
+[34, 41, 59, 63, 82, 93, 95]
+time taken for selectionsort for 7 elements is 1.6719069480895996
+Enter the no of elements8
+list before sorting elements
+[56, 76, 73, 97, 18, 74, 15, 11]
+list after selectionsort of element
+[11, 15, 18, 56, 73, 74, 76, 97]
+time taken for selectionsort for 8 elements is 1.0312275886535645
+Enter the no of elements9
+list before sorting elements
+[26, 42, 62, 86, 58, 91, 23, 80, 44]
+list after selectionsort of element
+[23, 26, 42, 44, 58, 62, 80, 86, 91]
+time taken for selectionsort for 9 elements is 1.4687628746032715
+Enter the no of elements10
+list before sorting elements
+[62, 98, 74, 46, 23, 68, 31, 47, 39, 63]
+list after selectionsort of element
+[23, 31, 39, 46, 47, 62, 63, 68, 74, 98]
+time taken for selectionsort for 10Warning: QT_DEVICE_PIXEL_RATIO is deprecated. Instead use:
+   QT_AUTO_SCREEN_SCALE_FACTOR to enable platform plugin controlled per-screen factors.
+   QT_SCREEN_SCALE_FACTORS to set per-screen DPI.
+   QT_SCALE_FACTOR to set the application global scale factor.
+ elements is 2.1562297344207764
+[4, 5, 6, 7, 8, 9, 10]
+[2.375081777572632, 8.781176805496216, 1.3750858306884766, 1.6719069480895996, 1.0312275886535645, 1.4687628746032715, 2.1562297344207764]
+
+
+10) Implement Insertionsort in Python.
+
+import random
+def InsertionSort(array):
+    for i in range(1,len(arr)):
+        key=arr[i]
+        j=i-1
+        while j>=0 and key<arr[j]:
+            arr[j + 1]=arr[j]
+            j -= 1
+        arr[j + 1]=key
+arr=[]
+n=int(input("Enter the no of elements"))
+for i in range(n):
+    num=random.randint(1,99)
+    arr.append(num)
+print("Before sorting")
+print(arr)
+InsertionSort(arr)
+print("list After sorting")
+print(arr)
+
+output:-
+
+>>> %Run 'Insertionsort simple.py'
+Enter the no of elements5
+Before sorting
+[25, 99, 54, 25, 36]
+list After sorting
+[25, 25, 36, 54, 99]
+>>> 
+
+
+11) Implement Mergesort in Python.
+
+import random
+def mergesort(arr):
+    if len(arr)>1:
+        mid=int(len(arr)/2)
+        L=arr[:mid]
+        z=len(L)
+        R=arr[mid:]
+        y=len(R)
+        print(L)
+        print(R)
+        mergesort(L)
+        mergesort(R)
+        i=0
+        j=0
+        k=0
+        while i< z and j< y:
+            if L[i]<=R[j]:
+                arr[k]=L[i]
+                i=i+1
+                k=k+1
+            elif L[i]>R[j]:
+                arr[k]=R[j]
+                j=j+1
+                k=k+1
+        while i<z:
+               arr[k]=L[i]
+               k=k+1
+               i=i+1
+        while j<y:
+              arr[k]=R[j]
+              k=k+1
+              j=j+1
+#mainecode
+arr=[]
+n=int(input("Enter the no of elements in the list"))
+for i in range(n):
+    num=random.randint(1,99)
+    arr.append(num)
+print("Before sorting")
+print(arr)
+mergesort(arr)
+print("list After sorting")
+print(arr)
+
+output:-
+
+>>> %Run mergesort.py
+Enter the no of elements in the list4
+Before sorting
+[2, 84, 89, 73]
+[2, 84]
+[89, 73]
+[2]
+[84]
+[89]
+[73]
+list After sorting
+[2, 73, 84, 89]
+>>> 
+
+12) Implement Quicksort in Python Simple programming.
+
+import  random
+def partition(arr, low, high):
+    i = low - 1
+    pivot=arr[high]
+    for j in range(low, high):
+        if arr[j] <= pivot:
+            i += 1
+            arr[i], arr[j] = arr[j], arr[i]
+    arr[i+1] , arr[high]=arr[high] , arr[i+1]
+    return(i+1)
+def quicksort(arr, low, high):
+    if low < high:
+        pi = partition(arr, low, high)
+        quicksort(arr, low, pi-1)
+        quicksort(arr, pi+1, high)
+#mainecode
+arr=[]
+n=int(input("Enter the no of element"))
+for i in range(n):
+    num=random.randint(1,99)
+    arr.append(num)
+    quicksort(arr,0,len(arr)-1)
+print(arr)
+
+
+output:-
+
+>>> %Run Quicksort.py
+Enter the no of element5
+[39, 56, 62, 81, 98]
+>>> 
+
+
+13) Implement Binarysearch Simple program in Python.
+
+def binarysearch(arr,k):
+    low,high=0,len(arr)
+    while low<high:
+        mid=(low+high) // 2
+        if k<arr[mid]:
+            high=mid
+        elif k>arr[mid]:
+            low=mid+1
+        else:
+            return mid
+    return-1
+arr=[]
+element=int(input("Enter the no of element"))
+for i in range(element):
+    ele=int(input("Enter the element"))
+    arr.append(ele)
+print(arr)
+k=int(input("Enter the element to be searched"))
+result=binarysearch(arr,k)
+if result !=-1:
+    print("search successful")
+else:
+    print("search Unsuccessful")
+
+output:-
+
+>>> %Run Binarysearch.py
+Enter the no of element5
+Enter the element1
+Enter the element5
+Enter the element6
+Enter the element7
+Enter the element8
+[1, 5, 6, 7, 8]
+Enter the element to be searched8
+search successful
+>>> %Run Binarysearch.py
+Enter the no of element4
+Enter the element1
+Enter the element3
+Enter the element6
+Enter the element9
+[1, 3, 6, 9]
+Enter the element to be searched2
+search Unsuccessful
+>>> 
+
+14) DFS
+
+Graph={'A':['B','D','E','F'],'D':['A'],'B':['A','F','C'],'F':['B','A'],'C':['B'],'E':['A']}
+print("Given Graph is:")
+print(Graph)
+def dfs_traversal (input_graph, source):
+    stack=list()
+    visited_list=list()
+    stack.append(source)
+    visited_list.append(source)
+    while stack:
+        vertex=stack.pop()
+        print(vertex,end="->")
+        for u in input_graph[vertex]:
+            if u not in visited_list:
+                stack.append(u)
+                visited_list.append(u)
+print("DFS traversal of graph with source A is:")
+dfs_traversal(Graph, "A")
+
+ output:-
+
+>>> %Run DFS.py
+Given Graph is:
+{'A': ['B', 'D', 'E', 'F'], 'D': ['A'], 'B': ['A', 'F', 'C'], 'F': ['B', 'A'], 'C': ['B'], 'E': ['A']}
+DFS traversal of graph with source A is:
+A->F->E->D->B->C->
+>>> 
+
+15)  Implemant Singly limked List with basic operations is operating(display)
+
+class Node:
+    def __init__(self,data = None):
+        self.data = data
+        self.next = None
+class SinglyLinkedList:
+    def __init__(self):
+        self.first = None
+    def insertFirst(self,data):
+        temp = Node(data)
+        temp.next=self.first
+        self.first=temp
+    def removeFirst(self):
+        if (self.first==None):
+            print("list is empty")
+        else:
+            cur=self.first
+            self.first=self.first.next
+            print("the deleted item is",cur.data)
+    def display(self):
+        if (self.first==None):
+            print("list is empty")
+            return
+        cur=self.first
+        while(cur):
+            print(cur.data, end = " ")
+            cur=cur.next
+#singly Linked List
+sll=SinglyLinkedList()
+while(True):
+    ch=int(input("\nEnter your choice 1-insert 2-delete 3-display 4-exit:"))
+    if(ch==1):
+        item=input("Enter the element to insert:")
+        sll.insertFirst(item)
+        sll.display()
+    elif(ch==2):
+        sll.removeFirst()
+        sll.display()
+    elif(ch==3):
+        sll.display()
+    else:
+        break
+
+
+output:-
+
+>>> %Run Singlylinklist.py
+
+Enter your choice 1-insert 2-delete 3-display 4-exit:1
+Enter the element to insert:2
+2 
+Enter your choice 1-insert 2-delete 3-display 4-exit:2
+the deleted item is 2
+list is empty
+
+Enter your choice 1-insert 2-delete 3-display 4-exit:3
+list is empty
+
+Enter your choice 1-insert 2-delete 3-display 4-exit:4
+>>> 
+
+16) Factorial number for using recursion
+
+import sys
+sys.setrecursionlimit(10**6)
+def factorial(n):
+    if(n<0 or int(n) != n):
+        return "Not defined"
+    if(n==1 or n==0):
+        return 1
+    else:
+        return n*factorial(n-1)
+f=int(input('Enter the number: \n'))
+print("factorial of a given number=",factorial(f))
+
+output:-
+
+>>> %Run factorial1.py
+Enter the number: 
+8
+factorial of a given number= 40320
+>>> 
+
+17)  Fibonacci Series  for using recursion.
+
+def fib(n):
+    if n < 0 or int(n) != n:
+        return "Not defined"
+    elif n==0 or n==1:
+        return n
+    else:
+        return fib(n-1) + fib(n-2)
+n=int(input("Enter the number: \n"))
+print("Fibonacci series:",end="")
+for i in range(0,n):
+    print(fib(i),end="")
+
+output:-
+
+>>> %Run Fibonacci1.py
+Enter the number: 
+5
+Fibonacci series:01123
+>>> 
+
+18)binarysearch tree
+
+class TreeNode:
+    def __init__(self, data,left = None, right = None):
+        self.data=data
+        self.left=left
+        self.right=right
+def insert(temp,data):
+    que=[]
+    que.append(temp)
+    while (len(que)):
+        temp=que[0]
+        que.pop(0)
+        if (not temp.left):
+            temp.left=TreeNode(data)
+            break
+        else:
+            que.append(temp.left)
+        if(not temp.right):
+            temp.right=TreeNode(data)
+            break
+        else:
+            que.append(temp.right)
+def make_tree(elements):
+    Tree=TreeNode(elements[0])
+    for elements in elements[1:]:
+        insert(Tree, elements)
+    return Tree
+class Solution(object):
+    def inorderTraversal(self, root):
+        res, stack=[], []
+        current=root
+        while True:
+            while current:
+                stack.append(current)
+                current=current.left
+            if len(stack)==0:
+                return res
+            node=stack[-1]
+            stack.pop(len(stack)-1)
+            if node.data != None:
+                res.append(node.data)
+            current=node.right
+        return res
+ob1=Solution()
+root=make_tree([10,5,15,2,7,None,20])
+print(ob1.inorderTraversal(root))
+
+
+output:-
+
+>>> %Run 'Binarysearch Tree.py'
+[2, 5, 7, 10, 15, 20]
+>>> 
